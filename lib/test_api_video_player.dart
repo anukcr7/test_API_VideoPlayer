@@ -7,10 +7,16 @@ class TestApiVideoPlayer extends StatefulWidget {
   @override
   _TestApiVideoPlayerState createState() => _TestApiVideoPlayerState();
   MethodChannel _channel = const MethodChannel('api_plugin');
-  String x;
-  String y;
+  String inputData1;
+  String dataModel1;
+  String narrationVoice;
+  String quality;
+  String language;
+  String narrationText;
+  String secretKey;
 
-  TestApiVideoPlayer(this.x, this.y);
+  TestApiVideoPlayer(this.inputData1, this.dataModel1, this.narrationVoice,
+      this.quality, this.language, this.narrationText, this.secretKey);
 
   static const MethodChannel _chanel = const MethodChannel('api_plugin');
 

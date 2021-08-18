@@ -13,6 +13,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return TestApiVideoPlayer("car1", "secret_key");
+    return TestApiVideoPlayer("car1", "2", "female", "5", "en", "Hello%20there",
+        "e84f089d-fd21-4643-baa1-5f628f9bbe74");
   }
 }
