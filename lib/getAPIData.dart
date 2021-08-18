@@ -4,10 +4,16 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class getAPIData {
-  String x;
-  String y;
+  String inputData1;
+  String dataModel1;
+  String narrationVoice;
+  String quality;
+  String language;
+  String narrationText;
+  String secretKey;
 
-  getAPIData(this.x, this.y);
+  getAPIData(this.inputData1, this.dataModel1, this.narrationVoice,
+      this.quality, this.language, this.narrationText, this.secretKey);
 
   static http.Response? response;
   static Map<String, dynamic>? _jsonResponse;
@@ -17,9 +23,10 @@ class getAPIData {
     try {
       response = await http.Client()
           .get(Uri.parse(
-              'http://a.y.com/generate-video/?input-data1=${x}&secret-key=${y}'))
+              'http://api.rivetik.com/rivetik-engine/generate-video/?input-data1=${inputData1}&data-model1=${dataModel1}&narration-voice=${narrationVoice}&quality=${quality}&language=${language}&narration-text=${narrationText}&secret-key=${secretKey}'))
           .timeout(Duration(minutes: 1));
-      print('http://a.y.com/generate-video/?input-data1=${x}&secret-key=${y}');
+      print(
+          'http://api.rivetik.com/rivetik-engine/generate-video/?input-data1=${inputData1}&data-model1=${dataModel1}&narration-voice=${narrationVoice}&quality=${quality}&language=${language}&narration-text=${narrationText}&secret-key=${secretKey}');
       if (response!.statusCode == 200) {
         print('Converting to map');
         print(response!.body);

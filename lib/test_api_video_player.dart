@@ -23,6 +23,7 @@ class TestApiVideoPlayer extends StatefulWidget {
 class _TestApiVideoPlayerState extends State<TestApiVideoPlayer> {
   @override
   Widget build(BuildContext context) {
-    return VideoPlayer("car1", "secret_key");
+    return VideoPlayer(
+        "car1", "2", "female", "5", "en", "Hello%20there", "xyz");
   }
 }

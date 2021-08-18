@@ -5,10 +5,17 @@ import 'package:visibility_detector/visibility_detector.dart';
 import 'package:flick_video_player/flick_video_player.dart';
 
 class VideoPlayer extends StatefulWidget {
-  String x;
-  String y;
+  String inputData1;
+  String dataModel1;
+  String narrationVoice;
+  String quality;
+  String language;
+  String narrationText;
+  String secretKey;
 
-  VideoPlayer(this.x, this.y);
+  VideoPlayer(this.inputData1, this.dataModel1, this.narrationVoice,
+      this.quality, this.language, this.narrationText, this.secretKey);
+
   @override
   _VideoPlayerState createState() => _VideoPlayerState();
 }
@@ -16,13 +23,20 @@ class VideoPlayer extends StatefulWidget {
 class _VideoPlayerState extends State<VideoPlayer> {
   String? video;
   void setupvideolink() async {
-    getAPIData instance = getAPIData(widget.x, widget.y);
+    getAPIData instance = getAPIData(
+        widget.inputData1,
+        widget.dataModel1,
+        widget.narrationVoice,
+        widget.quality,
+        widget.language,
+        widget.narrationText,
+        widget.secretKey);
     await instance.getData();
     print('GOT VIDEO LINK: ${instance.myvideo}');
     setState(() {
       video = instance.myvideo!;
       flickManager = FlickManager(
-        videoPlayerController: VideoPlayerController.network(video),
+        videoPlayerController: VideoPlayerController.network(video!),
       );
     });
   }
@@ -62,10 +76,10 @@ class _VideoPlayerState extends State<VideoPlayer> {
                                 onVisibilityChanged: (visibility) {
                                   if (visibility.visibleFraction == 0 &&
                                       this.mounted) {
-                                    flickManager.flickControlManager
+                                    flickManager.flickControlManager!
                                         .autoPause();
                                   } else if (visibility.visibleFraction == 1) {
-                                    flickManager.flickControlManager
+                                    flickManager.flickControlManager!
                                         .autoResume();
                                   }
                                 },
@@ -86,6 +100,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
                             )),
                       ))
                     : Center(child: CircularProgressIndicator()),
+                Text("WORKING"),
               ],
             )));
   }
