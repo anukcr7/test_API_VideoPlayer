@@ -100,7 +100,6 @@ class _VideoPlayerState extends State<VideoPlayer> {
                             )),
                       ))
                     : Center(child: CircularProgressIndicator()),
-                Text("WORKING"),
               ],
             )));
   }
