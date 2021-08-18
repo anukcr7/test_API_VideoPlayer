@@ -24,6 +24,6 @@ class _TestApiVideoPlayerState extends State<TestApiVideoPlayer> {
   @override
   Widget build(BuildContext context) {
     return VideoPlayer(
-        "car1", "2", "female", "5", "en", "Hello%20there", "xyz");
+        "car1", "2", "female", "5", "en", "Hello%20there", "secret_key");
   }
 }
